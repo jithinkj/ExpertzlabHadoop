@@ -13,7 +13,8 @@ public class DCMapper extends Mapper<LongWritable, Text,Text, IntWritable> {
         String str=value.toString().trim();
         String[] strings=str.split(",");
         Text key1=new Text(strings[2]);
-        context.write(key1,new IntWritable(1));
+        int sal=Integer.parseInt(strings[3]);
+        context.write(key1,new IntWritable(sal));
 
     }
 }
