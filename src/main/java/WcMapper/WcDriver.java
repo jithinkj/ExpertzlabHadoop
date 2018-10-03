@@ -17,7 +17,7 @@ public class WcDriver {
         Path outPath = new Path(args[1]);
         Configuration config=new Configuration();
         Job job=new Job(config);
-        job.setMapperClass(WcCountAnimals.class);
+        job.setMapperClass(WordCountMapper.class);
         job.setReducerClass(WordCountReducer.class);
         job.setJarByClass(WcDriver.class);
         job.setMapOutputKeyClass(Text.class);
