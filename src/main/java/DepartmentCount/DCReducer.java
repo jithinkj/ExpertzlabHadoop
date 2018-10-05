@@ -7,6 +7,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 import java.io.IOException;
 
 public class DCReducer extends Reducer<Text, IntWritable,Text,IntWritable> {
+    IntWritable v1;
     @Override
     protected void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
         int sum=0;
@@ -17,6 +18,7 @@ public class DCReducer extends Reducer<Text, IntWritable,Text,IntWritable> {
             count++;
         }
         int avg=sum/count;
+        v1=new IntWritable(avg);
         context.write(key,new IntWritable(avg));
     }
 }
